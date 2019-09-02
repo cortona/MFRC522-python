@@ -35,16 +35,19 @@ class SimpleMFRC522:
     def read_ultralight_id_no_block(self):
         (status, TagType) = self.READER.MFRC522_Request(self.READER.PICC_REQIDL)
         if status != self.READER.MI_OK:
-            return None, None
+            return None
         (status, uid) = self.READER.MFRC522_Anticoll()
         if status != self.READER.MI_OK:
-            return None, None
+            return None
         self.READER.MFRC522_SelectTag(uid)
         text_read = ''
         if status == self.READER.MI_OK:
             data = self.READER.MFRC522_Read(256)
         self.READER.MFRC522_StopCrypto1()
-        return data[:-8]
+        try:
+            return data[:-8]
+        except:
+            return []
 
     def read_id_no_block(self):
         (status, TagType) = self.READER.MFRC522_Request(self.READER.PICC_REQIDL)
