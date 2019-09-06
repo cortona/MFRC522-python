@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mfrc522",
-    version="0.0.7",
+    version="0.0.8",
     author="Pi My Life Up",
     author_email="support@pimylifeup.com",
     description="A library to integrate the MFRC522 RFID readers with the Raspberry Pi",
@@ -16,7 +16,7 @@ setuptools.setup(
     install_requires=[
         'RPi.GPIO',
         'spidev'
-        ],
+    ],
     classifiers=[
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
